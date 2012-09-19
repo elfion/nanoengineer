@@ -4,7 +4,7 @@
 @copyright: 2004-2009 Nanorex, Inc.  See LICENSE file for details.
 
 History:
-Ninad 2008-01-25: Split the former 'modifyMode '
+Ninad 2008-01-25: Split the former 'modifyMode ' 
                   into Commmand and GraphicsMode classes
                   and also refactored the GraphicsMode to create indiviudal
                   classes for rotating and translating selected entities.
@@ -19,7 +19,7 @@ conflicts with the 'RotateMode'.
 """
 from utilities import debug_flags
 import math
-from Numeric import dot, sign
+from numpy.oldnumeric import dot, sign
 import foundation.env as env
 from utilities.Log import redmsg
 from utilities.debug import print_compact_stack

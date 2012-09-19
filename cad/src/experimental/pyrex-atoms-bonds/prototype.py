@@ -1,12 +1,12 @@
 #!/usr/bin/python
 
-# Copyright 2006-2007 Nanorex, Inc.  See LICENSE file for details.
+# Copyright 2006-2007 Nanorex, Inc.  See LICENSE file for details. 
 import sys
 import string
 import unittest
 import time
 import types
-import Numeric
+import numpy.oldnumeric
 
 # This is a prototype of the desired API for Pyrex atoms, bonds, and
 # atom sets. See "Pyrex atoms and bonds" page on the wiki.

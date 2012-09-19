@@ -1,4 +1,4 @@
-# Copyright 2008 Nanorex, Inc.  See LICENSE file for details.
+# Copyright 2008 Nanorex, Inc.  See LICENSE file for details. 
 
 """
 InternalCoordinatesToCartesian.py
@@ -11,7 +11,7 @@ InternalCoordinatesToCartesian.py
 
 from geometry.VQT import V
 
-from Numeric import zeros, Float, cos, sin, sqrt, pi
+from numpy.oldnumeric import zeros, Float, cos, sin, sqrt, pi
 
 DEG2RAD = (pi/180.0)
 

@@ -1,4 +1,4 @@
-# Copyright 2004-2008 Nanorex, Inc.  See LICENSE file for details.
+# Copyright 2004-2008 Nanorex, Inc.  See LICENSE file for details. 
 """
 NeighborhoodGenerator.py -- linear time way to find overlapping or nearby atoms.
 
@@ -20,7 +20,7 @@ and .is_singlet(), and it needs no imports from model.
 
 import struct
 
-from Numeric import floor
+from numpy.oldnumeric import floor
 
 from geometry.VQT import vlen
 

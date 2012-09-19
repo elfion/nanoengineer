@@ -1,4 +1,4 @@
-# Copyright 2006-2007 Nanorex, Inc.  See LICENSE file for details.
+# Copyright 2006-2007 Nanorex, Inc.  See LICENSE file for details. 
 """
 Fond3D.py - a vector-drawing OpenGL font.
 
@@ -17,8 +17,8 @@ bruce 071030 - split Font3D out of dimensions module (since used in drawer.py)
 __author__ = "Will"
 
 import types
-import Numeric
-from Numeric import dot
+import numpy.oldnumeric
+from numpy.oldnumeric import dot
 
 from OpenGL.GL import glVertex
 

@@ -18,7 +18,7 @@ History:
 Created 2008-03-10 from copy of DnaSegment_GraphicsMode.py
 Recreated 2008-04-02 from copy of DnaSegment_GraphicsMode.py
 """
-from Numeric import dot
+from numpy.oldnumeric import dot
 from PyQt4.Qt import QMouseEvent
 
 from cnt.commands.BuildNanotube.BuildNanotube_GraphicsMode import BuildNanotube_GraphicsMode
@@ -198,7 +198,7 @@ class EditNanotube_GraphicsMode(BuildNanotube_GraphicsMode):
         farQ_junk, self.movingPoint = self.dragstart_using_GL_DEPTH( event)
         self.leftADown(objectUnderMouse, event)
         return
-
+    
     def leftADown(self, objectUnderMouse, event):
         """
         Method called during mouse left down . It sets some parameters
@@ -287,7 +287,7 @@ class EditNanotube_GraphicsMode(BuildNanotube_GraphicsMode):
                 pass
             pass
         return
-
+    
     def leftDrag(self, event):
         """
         Method called during Left drag event.

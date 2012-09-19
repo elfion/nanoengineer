@@ -2,7 +2,7 @@
 $Id$
 """
 
-# debug/test functions (in other submenu of debug menu) which won't be kept around.
+# debug/test functions (in other submenu of debug menu) which won't be kept around. 
 # [moved out of undo.py by bruce 071004]
 
 # not all of these are needed, perhaps:
@@ -77,7 +77,7 @@ def loadposns_cmd( target):
 
 # ==
 
-from Numeric import concatenate, array, UnsignedInt8
+from numpy.oldnumeric import concatenate, array, UnsignedInt8
 
 def atom_array_of_part(part):
     "Return an Array of all atoms in the Part. Try to be linear time."
@@ -203,7 +203,7 @@ def diff_keyposdict_from_mol( dict1, dict2, m):
         if pos != dict1.get(key): # Numeric compare -- might be slow, we'll see
             dict2[key] = pos
     return
-
+    
 def blerg(mols):
     dict1 = {}
     dict2 = {}

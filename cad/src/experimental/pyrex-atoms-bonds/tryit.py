@@ -1,8 +1,8 @@
-# Copyright 2006-2007 Nanorex, Inc.  See LICENSE file for details.
+# Copyright 2006-2007 Nanorex, Inc.  See LICENSE file for details. 
 import time
 import unittest
 import random
-import Numeric
+import numpy.oldnumeric
 from bases import *
 
 N = int(10**6)

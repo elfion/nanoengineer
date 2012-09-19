@@ -29,7 +29,7 @@ delete those atoms and fuse the bare strand with existing atoms
 """
 
 from geometry.VQT import Q, norm, vlen, cross
-from Numeric import dot
+from numpy.oldnumeric import dot
 from utilities.debug import print_compact_stack
 from model.bonds import bond_at_singlets
 
@@ -104,8 +104,8 @@ class B_Dna_PAM3_SingleStrand_Generator(B_Dna_PAM3_Generator):
             q_new2 = Q(b, q_new.angle)
 
         self.assy.rotateSpecifiedMovables(q_new2, chunkListForRotation, end1)
-
-
+        
+        
     def _strand_neighbors_to_delete(self, axisAtom):
         """
         Returns a list of strand neighbors of the given axis atom to delete
@@ -471,8 +471,8 @@ class B_Dna_PAM3_SingleStrand_Generator(B_Dna_PAM3_Generator):
         #instead of relying on fuse chunks (which relies on finding
         #bondable atom pairs within a tolerance limit. This fixes bug 2798
         self._bond_atoms_in_atomPairs(endAtomPairsToBond)
-
-
+        
+        
 
         #Make sure to call this AFTER the endatoms of new and
         #original DNAs are joined. Otherwise (if you replace the overlapping
@@ -481,7 +481,7 @@ class B_Dna_PAM3_SingleStrand_Generator(B_Dna_PAM3_Generator):
         #new_endBaseAtomList! (and thus, even the end strand atom won't
         #be fused with original dna end strand atom)
         self._replace_overlapping_axisAtoms_of_new_dna(new_endBaseAtomList)
-
+        
 
 
     def _find_overlapping_axisAtomPairs(self,

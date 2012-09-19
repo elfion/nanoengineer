@@ -1,4 +1,4 @@
-# Copyright 2004-2009 Nanorex, Inc.  See LICENSE file for details.
+# Copyright 2004-2009 Nanorex, Inc.  See LICENSE file for details. 
 """
 DnaDuplex.py -- DNA duplex generator helper classes, based on empirical data.
 
@@ -49,9 +49,9 @@ RIGHT_HANDED = -1
 LEFT_HANDED  =  1
 
 
-from geometry.VQT import V, Q, norm, cross
+from geometry.VQT import V, Q, norm, cross  
 from geometry.VQT import  vlen
-from Numeric import dot
+from numpy.oldnumeric import dot
 
 from utilities.debug import print_compact_stack
 from model.bonds import bond_at_singlets
@@ -80,11 +80,11 @@ class Z_Dna_Atomistic_Generator(Z_Dna_Generator):
         thetaOffset  =  0.0
         basename  =  basesDict[baseLetter]['Name']
 
-        if (index & 1) != 0:
+        if (index & 1) != 0: 
             # Index is odd.
             basename  +=  "-outer"
             zoffset    =  2.045
-        else:
+        else: 
             # Index is even.
             basename  +=  '-inner'
             zoffset    =  0.0

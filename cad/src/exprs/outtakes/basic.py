@@ -1,4 +1,4 @@
-# Copyright 2006-2007 Nanorex, Inc.  See LICENSE file for details.
+# Copyright 2006-2007 Nanorex, Inc.  See LICENSE file for details. 
 """
 basic.py -- define things to be imported by every module in this package (using import *)
 
@@ -35,7 +35,7 @@ $Id$
 # == imports from python itself
 
 import sys, os
-from Numeric import dot
+from numpy.oldnumeric import dot
 
 sys.setrecursionlimit(650) # 5000 is set in startup_funcs.py; this will ease debugging, but REMOVE WHEN DEVEL IS DONE [061121]
 
@@ -106,7 +106,7 @@ reload_once(exprs.If_expr)
 
 ##import staterefs
 ##reload_once(staterefs)
-##from staterefs import *
+##from staterefs import * 
 
 import exprs.iterator_exprs # 070302
 reload_once(exprs.iterator_exprs)
