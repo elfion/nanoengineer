@@ -264,7 +264,7 @@ class ChunkDrawer(TransformedDisplayListsDrawer):
             # self.glpane.) If it's too slow (which I doubt), we'll notice it
             # in a profile and optimize it.
         
-        if not self._chunk.atoms:
+        if not len(self._chunk.atoms) > 0:
             return
 
         # Indicate overlapping atoms, if that pref is enabled.
@@ -330,8 +330,8 @@ class ChunkDrawer(TransformedDisplayListsDrawer):
         current_transform_value = ( + self._chunk.basecenter, + self._chunk.quat.vec )
 
         # see comment below for why we have to compare the pieces, not the whole
-        if current_transform_value[0] != self._last_drawn_transform_value[0] or \
-           current_transform_value[1] != self._last_drawn_transform_value[1] :
+        #if (current_transform_value[0] != self._last_drawn_transform_value[0]) or \
+        #   (current_transform_value[1] != self._last_drawn_transform_value[1]) :
             # Our local coordinate system (aka our transform, stored in
             # self._chunk) has changed since we were last drawn. Before
             # drawing any CSDLs whose tranformControl is self._chunk (i.e.
@@ -348,8 +348,8 @@ class ChunkDrawer(TransformedDisplayListsDrawer):
             #  don't know whether that's worthwhile. Note that this update needs
             #  to cover extra_displists now, and ExternalBondSets in the
             #  future.) [bruce 090226 comment]
-            self.updateTransform()
-            pass
+        self.updateTransform()
+        #    pass
 
         self._last_drawn_transform_value = current_transform_value
 
@@ -622,14 +622,14 @@ class ChunkDrawer(TransformedDisplayListsDrawer):
                 # Numeric arrays, and never compare tuples containing them
                 # (except with same_vals), to avoid bugs. See same_vals
                 # docstring for details.]
-                if ( current_transform_value[0] != self._chunk.basecenter or
-                     current_transform_value[1] != self._chunk.quat.vec ):
-                    assert 0, \
-                        "bug: %r transform changed during draw, from %r to %r" % \
-                        ( self._chunk,
-                          current_transform_value,
-                          ( self._chunk.basecenter, self._chunk.quat.vec ) )
-                    pass
+                #if ( (current_transform_value[0] != self._chunk.basecenter) or
+                     #(current_transform_value[1] != self._chunk.quat.vec) ):
+                    #assert 0, \
+                        #"bug: %r transform changed during draw, from %r to %r" % \
+                        #( self._chunk,
+                          #current_transform_value,
+                          #( self._chunk.basecenter, self._chunk.quat.vec ) )
+                    #pass
 
                 pass # end of drawing within self's local coordinate frame
 

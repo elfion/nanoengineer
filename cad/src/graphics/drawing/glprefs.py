@@ -88,19 +88,19 @@ class GLPrefs:
     use_drawing_variant_prefs_key = "use_drawing_variant"
 
     #russ 080819: Added.
-    _use_sphere_shaders = use_sphere_shaders_default = True #bruce 090225 revised
+    _use_sphere_shaders = use_sphere_shaders_default = False #bruce 090225 revised
     use_sphere_shaders_prefs_key = "v1.2/GLPane: use_sphere_shaders"
 
     #russ 090116: Added.
-    _use_cylinder_shaders = use_cylinder_shaders_default = True #bruce 090303 revised
+    _use_cylinder_shaders = use_cylinder_shaders_default = False #bruce 090303 revised
     use_cylinder_shaders_prefs_key = "v1.2/GLPane: use_cylinder_shaders"
 
     #russ 090223: Added.
-    _use_cone_shaders = use_cone_shaders_default = True #bruce 090225 revised
+    _use_cone_shaders = use_cone_shaders_default = False #bruce 090225 revised
     use_cone_shaders_prefs_key = "v1.2/GLPane: use_cone_shaders"
 
     # Russ 081002: Added.
-    _use_batched_primitive_shaders = use_batched_primitive_shaders_default = True #bruce 090225 revised
+    _use_batched_primitive_shaders = use_batched_primitive_shaders_default = False #bruce 090225 revised
     use_batched_primitive_shaders_prefs_key = "v1.2/GLPane: use_batched_primitive_shaders"
 
     # ==

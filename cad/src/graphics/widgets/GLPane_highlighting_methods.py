@@ -98,6 +98,7 @@ class GLPane_highlighting_methods(object):
                buffer drawing -- caller must do that on some or all
                of the objects we store into self.glselect_dict.
         """
+        #return
         if self.glselect_wanted: # note: this will be reset below.
             ###@@@ WARNING: The original code for this, here in GLPane, has been duplicated and slightly modified
             # in at least three other places (search for glRenderMode to find them). This is bad; common code

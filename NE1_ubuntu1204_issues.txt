@@ -1,0 +1,218 @@
+Nanoengineer-1 dependencies
+
+* PyQt4
+aptitude install python-qt4
+
+* Numpy
+aptitude install python-numpy
+
+* Numeric
+
+PROBLEM:
+
+File "/home/user/Desktop/kanzure-nanoengineer/cad/src/geometry/VQT.py", line 23, in <module>
+    import Numeric 
+ImportError: No module named Numeric
+
+
+http://qwone.com/~jason/python/numeric/
+
+>2/1/06 UPDATE A new, master module, named NumPy  has been released that is touted as a replacement for Numeric and Numarray.
+
+SOLUTION:
+
+#import Numeric 
+import numpy.oldnumeric as Numeric
+
+PROBLEM:
+
+  File "/home/user/Desktop/kanzure-nanoengineer/cad/src/model/atomtypes.py", line 97, in __init__
+    if (bondvectors):
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+
+SOLUTION:
+
+if (bondvectors != None):
+            # number of distinct bonds to different other atoms (a
+            # double bond is counted as 1)
+            self.numbonds = len(bondvectors)
+
+            s = bondvectors[0]
+            self.base = s
+            for v in bondvectors[1:]:
+                self.quats += [Q(s,v)]
+        else:
+            self.numbonds = 0
+ 
+        if (bondvectors != None):
+           self.bondvectors = bondvectors
+        else:
+           self.bondvectors = []
+					 
+PROBLEM:
+
+File "/home/user/Desktop/kanzure-nanoengineer/cad/src/model/chunk.py", line 74, in <module>
+    import Numeric # for sqrt
+ImportError: No module named Numeric
+
+SOLUTION:
+
+#import Numeric 
+import numpy.oldnumeric as Numeric
+
+PROBLEM:
+
+  File "/home/user/Desktop/kanzure-nanoengineer/cad/src/model/chunk.py", line 90, in <module>
+    from OpenGL.GL import glPushMatrix
+ImportError: No module named OpenGL.GL
+
+SOLUTION:
+
+sudo aptitude install python-opengl
+
+PROBLEM:
+
+  File "/home/user/Desktop/kanzure-nanoengineer/cad/src/graphics/drawing/drawers.py", line 28, in <module>
+    import Numeric
+ImportError: No module named Numeric
+
+SOLUTION:
+
+Replaced Numeric with numpy.oldnumeric
+in
+chunk.py
+Line.py
+Plane.py
+jigs_motors.py
+pi_bond_sp_chain.py
+NamedView.py
+PAM_Atom_methods.py
+jigs_planes.py
+bonds.py
+chem.py
+jigs_measurements.py
+./cad/src/files/dpb_trajectory/moviefile.py:20:from Numeric import array, Int8
+./cad/src/protein/model/Residue.py:375:    from Numeric import dot
+./cad/src/protein/commands/InsertPeptide/PeptideGenerator.py:34:from Numeric import zeros, sqrt, pi, sin, cos, Float
+./cad/src/foundation/state_utils.py:1139:    from Numeric import array, PyObject
+./cad/src/foundation/state_utils.py:2324:    from Numeric import array
+./cad/src/temporary_commands/ZoomInOutMode.py:11:from Numeric import exp
+./cad/src/temporary_commands/ZoomToAreaMode.py:14:from Numeric import dot
+./cad/src/temporary_commands/RotateAboutPoint_Command.py:16:from Numeric import dot
+./cad/src/cnt/model/NanotubeParameters.py:19:from Numeric import dot, argmax, argmin, sqrt
+./cad/src/cnt/commands/EditNanotube/EditNanotube_GraphicsMode.py:21:from Numeric import dot
+
+.... ~80 more files
+
+PROBLEM:
+
+./cad/src/atombasehelp.c:8:#include "Numeric/arrayobject.h"
+./cad/src/samevalshelp.c:12:#include "Numeric/arrayobject.h"
+
+???SOLUTION
+
+PROBLEM:
+
+  File "/home/user/Desktop/kanzure-nanoengineer/cad/src/foundation/undo_archive.py", line 1405, in <module>
+    from idlelib.Delegator import Delegator
+ImportError: No module named idlelib.Delegator
+
+SOLUTION:
+
+sudo aptitude install idle
+
+PROBLEM:
+
+ File "/home/user/Desktop/kanzure-nanoengineer/cad/src/geometry/geometryUtilities.py", line 26, in <module>
+    from LinearAlgebra import solve_linear_equations, eigenvectors
+ImportError: No module named LinearAlgebra
+
+
+SOLUTION:
+
+#from LinearAlgebra import solve_linear_equations, eigenvectors
+from numpy.linalg import solve as solve_linear_equations
+from numpy.linalg import eig as eigenvectors
+
+PROBLEM:
+
+  File "/home/user/Desktop/kanzure-nanoengineer/cad/src/geometry/VQT.py", line 619, in cat
+    if not a:
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+
+SOLUTION:
+
+  if not a.any():
+        if (_DEBUG_QUATS or debug_flags.atom_debug):
+            print "_DEBUG_QUATS: cat(a, b) with false a -- is it right?", a
+        return b
+    if not b.any():
+        if (_DEBUG_QUATS or debug_flags.atom_debug):
+            print "_DEBUG_QUATS: cat(a, b) with false b -- is it right?", b
+        return a
+				
+PROBLEM:
+
+  File "/home/user/Desktop/kanzure-nanoengineer/cad/src/graphics/widgets/GLPane_event_methods.py", line 20, in <module>
+    from PyQt4.QtOpenGL import QGLWidget
+ImportError: No module named QtOpenGL
+
+SOLUTION:
+
+aptitude install python-qt4-gl
+
+PROBLEM:
+
+File "/home/user/Desktop/kanzure-nanoengineer/cad/src/geometry/VQT.py", line 383, in __eq__
+    return not (self.vec != other.vec) # assumes all quats have .vec; true except for bugs
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+
+SOLUTION:
+
+def __eq__(self, other): #bruce 070227 revised this
+        try:
+            if self.__class__ is not other.__class__:
+                return False
+        except AttributeError:
+            # some objects have no __class__ (e.g. Numeric arrays)
+            return False
+        return not (self.vec.any() != other.vec.any()) # assumes all quats have .vec; true except for bugs
+            #bruce 070227 fixed "Numeric array == bug" encountered by this line (when it said "self.vec == other.vec"),
+            # which made Q(1, 0, 0, 0) == Q(0.877583, 0.287655, 0.38354, 0) (since they're equal in at least one component)!!
+            # Apparently it was my own bug, since it says above that I wrote this method on 060209.
+        pass
+				
+PROBLEM:
+
+ File "/home/user/Desktop/kanzure-nanoengineer/cad/src/graphics/drawing/drawcompass.py", line 78, in __init__
+    _draw_compass_geometry()
+  File "/home/user/Desktop/kanzure-nanoengineer/cad/src/graphics/drawing/drawcompass.py", line 193, in _draw_compass_geometry
+    [r1,r2,r3,r4,0,0])
+  File "/usr/lib/pymodules/python2.7/OpenGL/latebind.py", line 45, in __call__
+    return self._finalCall( *args, **named )
+  File "/usr/lib/pymodules/python2.7/OpenGL/wrapper.py", line 573, in wrapperCall
+    result = self.wrappedOperation( *cArguments )
+  File "/usr/lib/pymodules/python2.7/OpenGL/platform/baseplatform.py", line 340, in __call__
+    self.__name__, self.__name__,
+OpenGL.error.NullFunctionError: Attempt to call an undefined function glePolyCone, check for bool(glePolyCone) before calling
+
+SOLUTION:
+
+sudo aptitude install libgle3
+
+PROBLEM:
+
+  File "/home/user/Desktop/kanzure-nanoengineer/cad/src/graphics/widgets/GLPane_rendering_methods.py", line 122, in _init_GLPane_rendering_methods
+    self.compass = Compass(self) #bruce 081015 refactored this
+  File "/home/user/Desktop/kanzure-nanoengineer/cad/src/graphics/drawing/drawcompass.py", line 77, in __init__
+    glNewList(self._compass_dl, GL_COMPILE)
+  File "/usr/lib/pymodules/python2.7/OpenGL/error.py", line 208, in glCheckError
+    baseOperation = baseOperation,
+OpenGL.error.GLError: GLError(
+	err = 1282,
+	description = 'invalid operation',
+	baseOperation = glNewList,
+	cArguments = (17L, GL_COMPILE)
+)
+
+???SOLUTION

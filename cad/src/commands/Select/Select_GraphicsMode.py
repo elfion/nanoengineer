@@ -1120,6 +1120,7 @@ class Select_basicGraphicsMode( Select_GraphicsMode_MouseHelpers_preMixin,
         pass
 
     def get_jig_under_cursor(self, event):
+        #return
         """
         Use the OpenGL picking/selection to select any jigs. Restore the projection and modelview
         matrices before returning.

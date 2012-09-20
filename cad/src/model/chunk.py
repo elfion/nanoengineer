@@ -1601,7 +1601,7 @@ class Chunk(Chunk_Dna_methods, Chunk_mmp_methods,
         for this attribute; but probably yes, so it can run after incremental
         mods to atpos.
         """
-        if self.atoms:
+        if len(self.atoms) > 0:
             self.average_position = add.reduce(self.atpos)/len(self.atoms)
         else:
             self.atpos # recompute methods must always use all their inputs
@@ -2551,7 +2551,7 @@ class Chunk(Chunk_Dna_methods, Chunk_mmp_methods,
         """
         ## removed support for backs_ok, since atom backs are not drawn
         p1 = (r_xy_2 <= radii_2) # indices of candidate atoms
-        if not p1: # i.e. if p1 is an array of all false/0 values [bruce 050516 guess/comment]
+        if not p1.any(): # i.e. if p1 is an array of all false/0 values [bruce 050516 guess/comment]
             # no atoms hit by line of sight (common when several mols shown)
             return []
         p1inds = nonzero(p1) # indices of the nonzero elements of p1

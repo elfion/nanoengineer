@@ -55,16 +55,17 @@ class BBox:
             #the top plane, put them together
             sq1 = cat(sq1, sq1+slab.thickness*slab.normal)
             self.data = V(maximum.reduce(sq1), minimum.reduce(sq1))
-        elif point2:
+        elif point2 != None:
             # just 2 3d points
             self.data = V(maximum(point1, point2), minimum(point1, point2))
-        elif point1:
+        elif point1 != None:
             # list of points: could be 2d or 3d?  +/- 1.8 to make the bounding 
             #box enclose the vDw ball of an atom?
             self.data = V(maximum.reduce(point1) + BBOX_MARGIN, 
                           minimum.reduce(point1) - BBOX_MARGIN)
         else:
             # a null bbox
+            print "[Warning: NULL BBox generated]"
             self.data = None
 
 
@@ -73,19 +74,19 @@ class BBox:
         self.data = V(maximum.reduce(vl), minimum.reduce(vl))
 
     def merge(self, bbox):
-        if self.data and bbox.data:
+        if self.data.any() and bbox.data.any():
             self.add(bbox.data)
         else:
             self.data = bbox.data
 
     def draw(self):
-        if self.data:
+        if self.data.any():
             drawwirebox(black,
                         add.reduce(self.data) / 2,
                         subtract.reduce(self.data) / 2 )
 
     def center(self):
-        if self.data:
+        if self.data.any():
             return add.reduce(self.data)/2.0
         else:
             return V(0, 0, 0)
@@ -107,7 +108,7 @@ class BBox:
         needed to enclose its data, due to hardcoded constants
         in its construction methods. [TODO: document, make optional]
         """
-        if not self.data: return 10.0
+        if not self.data.any(): return 10.0
         #x=1.2*maximum.reduce(subtract.reduce(self.data))
 
         dd = 0.5*subtract.reduce(self.data)
