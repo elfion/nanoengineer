@@ -94,7 +94,7 @@ def fill(mat, p, dir): # TODO: rename (less generic so searchable), and perhaps 
     most probably this filling area is smaller than that inside the curve. I think it also reduces repeated 
     checking/filling of the classical algorithm.
     """
-    if mat[p]:
+    if mat[p].any():
         return
     up = dn = 0
     o1 = array([1, 0])

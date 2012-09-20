@@ -28,6 +28,8 @@ Ninad & Bruce 2007-12-13: Created new Command and GraphicsMode classes from
 
 """
 
+from numpy.linalg import norm as vector_length
+
 from analysis.ESP.ESPImage import ESPImage
 from PyQt4.Qt import QMouseEvent
 
@@ -853,7 +855,7 @@ class SelectAtoms_basicGraphicsMode(Select_basicGraphicsMode):
         <apos0> is the previous x,y,z position of <a>.
         """
         apos1 = a.posn()
-        if apos1 - apos0:
+        if vector_length(apos1 - apos0) > 0.0:
             if debug_pref(
                 #bruce 060316 made this optional, to see if it causes
                 #lagging drags of C
@@ -924,9 +926,7 @@ class SelectAtoms_basicGraphicsMode(Select_basicGraphicsMode):
         if n: # If <a> has nonbaggage atoms, move and rotate its baggage atoms.
             # slight safety tweaks to old code, though we're about to add new
             #code to second-guess it [bruce 060629]
-            old = norm(old) #k not sure if these norms make any difference
-            new = norm(new)
-            if old and new:
+            if vector_length(old - new) > 0.0:
                 q = Q(old,new)
                 for at in self.baggage:
                     at.setposn(q.rot(at.posn()-apo)+px) # similar to adjBaggage,

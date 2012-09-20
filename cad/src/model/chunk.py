@@ -1764,7 +1764,7 @@ class Chunk(Chunk_Dna_methods, Chunk_mmp_methods,
             #e (though it might be faster to just delete it, if many moves
             #   will happen before we need it again)
             # TODO: refactor this to use a move method in bbox.
-            if self.bbox.data:
+            if self.bbox.data != None:
                 self.bbox.data += offset
             
         # Now, do the move. Note that this might destructively modify the object

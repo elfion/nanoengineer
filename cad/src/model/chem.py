@@ -1507,7 +1507,7 @@ class Atom( PAM_Atom_methods, AtomBase, InvalMixin, StateMixin, Selobj_API):
             # code to second-guess it [bruce 060629]
             old = norm(old) #k not sure if these norms make any difference
             new = norm(new)
-            if old and new:
+            if old.any() and new.any():
                 q = Q(old, new)
                 for atom_b in baggage: ## was self.singNeighbors()
                     atom_b.setposn(q.rot(atom_b.posn() - apo) + apo)
@@ -4865,7 +4865,7 @@ class Atom( PAM_Atom_methods, AtomBase, InvalMixin, StateMixin, Selobj_API):
         """
         assert len(self.bonds) == 0 # bruce 071019 added this
         atype = self.atomtype
-        if atype.bondvectors:
+        if atype.bondvectors.any():
             r = atype.rcovalent
             pos = self.posn()
             chunk = self.molecule

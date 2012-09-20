@@ -30,6 +30,7 @@ GraphicsMode parts and the these classes were moved into their own module
 
 import math
 from numpy.oldnumeric import dot
+from numpy.linalg import norm as vector_length
 
 from OpenGL.GL import GL_FALSE
 from OpenGL.GL import glDepthMask
@@ -508,7 +509,7 @@ class BuildAtoms_basicGraphicsMode(SelectAtoms_basicGraphicsMode):
             # untested and incomplete since nothing is setting drag_offset
             # when this is called (except to its default value V(0,0,0))!
         
-        if self.pivax:
+        if self.pivax != None:
             # continue pivoting around an axis
             quat = twistor(self.pivax,
                            bondpoint.posn() - self.pivot,
@@ -516,7 +517,7 @@ class BuildAtoms_basicGraphicsMode(SelectAtoms_basicGraphicsMode):
             for at in [bondpoint] + self.baggage:
                 at.setposn(quat.rot(at.posn() - self.pivot) + self.pivot)
         
-        elif self.pivot:
+        elif self.pivot != None:
             # continue pivoting around a point
             quat = Q(bondpoint.posn() - self.pivot, px - self.pivot)
             for at in [bondpoint] + self.baggage:
@@ -559,7 +560,8 @@ class BuildAtoms_basicGraphicsMode(SelectAtoms_basicGraphicsMode):
         self.line = [bondpoint.posn(), px]
         
         apos1 = bondpoint.posn()
-        if apos1 - apos0:
+                  
+        if vector_length(apos1 - apos0) > 0:
             msg = "pulling bondpoint %r to %s" % (bondpoint, 
                                                   self.posn_str(bondpoint))
             this_drag_id = (self.current_obj_start, 
