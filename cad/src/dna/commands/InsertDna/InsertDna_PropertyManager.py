@@ -427,9 +427,9 @@ class InsertDna_PropertyManager( DnaOrCnt_PropertyManager ):
         y2 = self.y2SpinBox.value()
         z2 = self.z2SpinBox.value()
 
-        if not self.endPoint1:
+        if self.endPoint1 is not None:
             self.endPoint1 = V(x1, y1, z1)
-        if not self.endPoint2:
+        if self.endPoint2 is not None:
             self.endPoint2 = V(x2, y2, z2)
 
         return (numberOfBases,

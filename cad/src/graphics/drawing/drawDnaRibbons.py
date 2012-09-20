@@ -306,7 +306,7 @@ def drawDnaSingleRibbon(glpane,
         x += duplexRise
         numberOfBasesDrawn += 1
 
-        if previous_ribbon1_point:
+        if previous_ribbon1_point is not None:
             drawline(ribbon1Color, 
                      previous_ribbon1_point, 
                      ribbon1_point,

@@ -265,9 +265,11 @@ def drawpolycone_worker(params):
     function and its parameters can be passed to another function for
     deferment.  Right now this is only ColorSorter.schedule (see below)
     """
+    
     if not _DRAW_BONDS:
         return
     (pos_array, rad_array) = params
+
     glePolyCone(pos_array, None, rad_array)
     return
 

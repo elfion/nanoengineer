@@ -74,7 +74,7 @@ class BBox:
         self.data = V(maximum.reduce(vl), minimum.reduce(vl))
 
     def merge(self, bbox):
-        if self.data.any() and bbox.data.any():
+        if self.data is not None and bbox.data is not None:
             self.add(bbox.data)
         else:
             self.data = bbox.data
@@ -86,7 +86,7 @@ class BBox:
                         subtract.reduce(self.data) / 2 )
 
     def center(self):
-        if self.data.any():
+        if self.data is not None:
             return add.reduce(self.data)/2.0
         else:
             return V(0, 0, 0)
@@ -108,7 +108,7 @@ class BBox:
         needed to enclose its data, due to hardcoded constants
         in its construction methods. [TODO: document, make optional]
         """
-        if not self.data.any(): return 10.0
+        if self.data is not None: return 10.0
         #x=1.2*maximum.reduce(subtract.reduce(self.data))
 
         dd = 0.5*subtract.reduce(self.data)

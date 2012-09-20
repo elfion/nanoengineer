@@ -20,6 +20,8 @@ from numpy.oldnumeric import dot
 from numpy.oldnumeric import argmax
 from numpy.oldnumeric import reshape
 
+from numpy.linalg import norm as vector_length
+
 from OpenGL.GL import glPushMatrix
 from OpenGL.GL import glTranslatef
 from OpenGL.GL import glRotatef
@@ -90,7 +92,7 @@ class Motor(Jig):
         relpos = pos - self.center
         from geometry.geometryUtilities import compute_heuristic_axis
         axis = compute_heuristic_axis( relpos, 'normal', already_centered = True, nears = nears, dflt = None )
-        if not axis:
+        if axis is not None:
             #e warning? I think so... BTW we pass dflt = None to make the warning come out more often;
             # I don't know if we'd need to check for it here if we didn't.
             env.history.message( orangemsg( "Warning: motor axis chosen arbitrarily since atom arrangement doesn't suggest one." ))
@@ -408,7 +410,7 @@ class RotaryMotor(Motor):
             self._initial_quats = None # compute these the first time they're needed (since maybe never needed)
             return 0.0 # returning this now (rather than computing it below) is just an optim, in theory
         assert len(self._initial_posns) == len(posns), "bug in invalidating self._initial_posns when rmotor atoms change"
-        if not (self._initial_posns != posns): # have to use not (x != y) rather than (x == y) due to Numeric semantics!
+        if vector_length(self._initial_posns - posns) < 0.001: # have to use not (x != y) rather than (x == y) due to Numeric semantics!
             # no (noticable) change in positions - return quickly
             # (but don't change stored posns, in case this misses tiny changes which could accumulate over time)
             # (we do this before the subsequent stuff, to not waste redraw time when posns don't change;

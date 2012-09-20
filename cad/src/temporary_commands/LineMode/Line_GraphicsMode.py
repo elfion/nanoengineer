@@ -360,7 +360,7 @@ class Line_GraphicsMode( Select_GraphicsMode ):
         """
         if self.endPoint2 is None:
             return
-        if self._standardAxisVectorForDrawingSnapReference:
+        if self._standardAxisVectorForDrawingSnapReference is not None:
             drawline(blue,
                      V(0, 0, 0), 
                      self.endPoint2, 
@@ -405,7 +405,7 @@ class Line_GraphicsMode( Select_GraphicsMode ):
 
         if self.endPoint2 is not None:
 
-            if self.endPoint1:
+            if self.endPoint1 is not None:
                 drawsphere(self.endPoint1_sphereColor, 
                            self.endPoint1, 
                            STARTPOINT_SPHERE_RADIUS,
