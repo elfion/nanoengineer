@@ -1,11 +1,11 @@
-mmpformat 050920 required; 051103 preferred
+mmpformat 080327 required; 080529 preferred
 kelvin 300
 group (View Data)
 info opengroup open = True
 csys (HomeView) (1.000000, 0.000000, 0.000000, 0.000000) (23.761676) (0.000000, 0.000000, 0.000000) (1.000000)
-csys (LastView) (1.000000, 0.000000, 0.000000, 0.000000) (23.761676) (0.000000, 0.000000, 0.000000) (1.000000)
+csys (LastView) (-0.305946, -0.495663, 0.511365, 0.631840) (47.850139) (-2.356048, -1.349155, 0.428478) (1.000000)
 egroup (View Data)
-group (HCBearing)
+group (Hydrocarbon Strained Sleeve Bearing)
 info opengroup open = True
 mol (OuterSleeve) def
 atom 1 (1) (15, 3792, 15020) def
@@ -4951,9 +4951,9 @@ atom 2471 (1) (-11, 9031, -9033) def
 bond1 2463
 atom 2472 (1) (-15, 6685, -13342) def
 bond1 2470
-egroup (HCBearing)
+egroup (Hydrocarbon Strained Sleeve Bearing)
 end1
 group (Clipboard)
 info opengroup open = False
 egroup (Clipboard)
-end molecular machine part HCBearing
+end molecular machine part Hydrocarbon Strained Sleeve Bearing

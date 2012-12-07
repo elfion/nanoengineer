@@ -25,7 +25,10 @@ char __author__[] = "Will";
 
 #include <stdlib.h>
 #include "Python.h"
-#include "Numeric/arrayobject.h"
+
+//#include "Numeric/arrayobject.h"
+#include "C:\Python27\Lib\site-packages\numpy\core\include\numpy\arrayobject.h"
+
 #include "simulator.h"
 #include "version.h"
 

@@ -43,6 +43,8 @@ import os
 
 # ==
 
+atom_debug = True
+
 try:
     atom_debug # don't disturb it if already set (e.g. by .atom-debug-rc)
 except:

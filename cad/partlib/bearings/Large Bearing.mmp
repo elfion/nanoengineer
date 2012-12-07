@@ -1,11 +1,11 @@
-mmpformat 050920 required; 051103 preferred
+mmpformat 080327 required; 080529 preferred
 kelvin 300
 group (View Data)
 info opengroup open = True
 csys (HomeView) (1.000000, 0.000000, 0.000000, 0.000000) (24.970498) (0.012182, -0.026075, -0.006815) (1.000000)
 csys (LastView) (1.000000, 0.000000, 0.000000, 0.000000) (24.970498) (0.012182, -0.026075, -0.006815) (1.000000)
 egroup (View Data)
-group (Strained-shell Sleeve Bearing)
+group (Large Bearing)
 info opengroup open = True
 mol (Shaft %2834-fold%29) def
 atom 1 (6) (3542, 12687, -6) def
@@ -5623,9 +5623,9 @@ atom 2807 (1) (1, -20253, -5901) def
 bond1 2623
 atom 2808 (1) (2, -20249, 5919) def
 bond1 2624
-egroup (Strained-shell Sleeve Bearing)
+egroup (Large Bearing)
 end1
 group (Clipboard)
 info opengroup open = False
 egroup (Clipboard)
-end molecular machine part Strained-shell Sleeve Bearing
+end molecular machine part Large Bearing

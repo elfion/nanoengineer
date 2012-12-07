@@ -154,6 +154,9 @@ def enabled_shaders(glpane): #bruce 090303
     """
     glprefs = glpane.glprefs
     res = []
+    
+    # glpane.permit_shaders = False
+    
     if glpane.permit_shaders and glprefs._use_batched_primitive_shaders:
         # note: testing _use_batched_primitive_shaders is just
         # an optimization (and a kluge) (so nevermind that it's private)

@@ -32,48 +32,48 @@ gl_lighting.py gl_buffers.py
 # as of 2007/06/25.  It's not clear why acos is coming from math...
 from numpy.oldnumeric import sin, cos, pi
 
-try:
-    from OpenGL.GL import GL_ARRAY_BUFFER_ARB
-    from OpenGL.GL import glBegin
-    from OpenGL.GL import GL_COMPILE
-    from OpenGL.GL import glDisable
-    from OpenGL.GL import GL_ELEMENT_ARRAY_BUFFER_ARB
-    from OpenGL.GL import glEnable
-    from OpenGL.GL import glEnd
-    from OpenGL.GL import glEndList
-    from OpenGL.GL import GL_EXTENSIONS
-    from OpenGL.GL import glGenLists
-    from OpenGL.GL import glGetString
-    from OpenGL.GL import GL_LINE_LOOP
-    from OpenGL.GL import GL_LINES
-    from OpenGL.GL import GL_LINE_SMOOTH
-    from OpenGL.GL import GL_LINE_STRIP
-    from OpenGL.GL import glNewList
-    from OpenGL.GL import glNormal3fv
-    from OpenGL.GL import GL_POLYGON
-    from OpenGL.GL import GL_QUADS
-    from OpenGL.GL import GL_QUAD_STRIP
-    from OpenGL.GL import GL_STATIC_DRAW
-    from OpenGL.GL import GL_TRIANGLES
-    from OpenGL.GL import GL_TRIANGLE_STRIP
-    from OpenGL.GL import GL_UNSIGNED_BYTE
-    from OpenGL.GL import GL_UNSIGNED_SHORT
-    from OpenGL.GL import glVertex
-    from OpenGL.GL import glVertex3f
-    from OpenGL.GL import glVertex3fv
+from OpenGL.GL import glBegin
+from OpenGL.GL import GL_COMPILE
+from OpenGL.GL import glDisable
 
-    from geometry.VQT import norm, V, A
+# from OpenGL.GL import GL_ARRAY_BUFFER_ARB
+# from OpenGL.GL import GL_ELEMENT_ARRAY_BUFFER_ARB
+from OpenGL.raw.GL.ARB.vertex_buffer_object import GL_ARRAY_BUFFER_ARB
+from OpenGL.raw.GL.ARB.vertex_buffer_object import GL_ELEMENT_ARRAY_BUFFER_ARB
 
-    import graphics.drawing.drawing_globals as drawing_globals
-    from graphics.drawing.shape_vertices import getSphereTriStrips
-    from graphics.drawing.shape_vertices import getSphereTriangles
-    from graphics.drawing.shape_vertices import indexVerts
-    from graphics.drawing.gl_buffers import GLBufferObject
+from OpenGL.GL import glEnable
+from OpenGL.GL import glEnd
+from OpenGL.GL import glEndList
+from OpenGL.GL import GL_EXTENSIONS
+from OpenGL.GL import glGenLists
+from OpenGL.GL import glGetString
+from OpenGL.GL import GL_LINE_LOOP
+from OpenGL.GL import GL_LINES
+from OpenGL.GL import GL_LINE_SMOOTH
+from OpenGL.GL import GL_LINE_STRIP
+from OpenGL.GL import glNewList
+from OpenGL.GL import glNormal3fv
+from OpenGL.GL import GL_POLYGON
+from OpenGL.GL import GL_QUADS
+from OpenGL.GL import GL_QUAD_STRIP
+from OpenGL.GL import GL_STATIC_DRAW
+from OpenGL.GL import GL_TRIANGLES
+from OpenGL.GL import GL_TRIANGLE_STRIP
+from OpenGL.GL import GL_UNSIGNED_BYTE
+from OpenGL.GL import GL_UNSIGNED_SHORT
+from OpenGL.GL import glVertex
+from OpenGL.GL import glVertex3f
+from OpenGL.GL import glVertex3fv
 
-    import numpy
+from geometry.VQT import norm, V, A
 
-except:
-    pass
+import graphics.drawing.drawing_globals as drawing_globals
+from graphics.drawing.shape_vertices import getSphereTriStrips
+from graphics.drawing.shape_vertices import getSphereTriangles
+from graphics.drawing.shape_vertices import indexVerts
+from graphics.drawing.gl_buffers import GLBufferObject
+
+import numpy
 
 _NUM_SPHERE_SIZES = 3
 
@@ -88,11 +88,7 @@ def setup_drawer():
     by this function, but in general those names might differ if this was called
     in different GL contexts.
     """    
-    try:
-        spherelistbase = glGenLists(_NUM_SPHERE_SIZES)
-    except: pass
-    
-
+    spherelistbase = glGenLists(_NUM_SPHERE_SIZES)
     sphereList = []
     for i in range(_NUM_SPHERE_SIZES):
         sphereList += [spherelistbase+i]

@@ -19,7 +19,7 @@ ifeq ($(OS),Windows_NT)
 UNAME_A=$(shell ver)
 # UNAME_A=$$(shell ver)   # Cygwin: but in this case use 'uname -a' anyway
 # Location of the MinGW compiler
-CCDIR = C:/MinGW
+CCDIR = D:/tools/mingw64
 #CCDIR = C:/Dev-Cpp
 CC = "$(CCDIR)/bin/gcc.exe"
 #CFLAGS=-g -I"$(CCDIR)/include" -I"C:/cygwin/usr/local/include" -I"C:/Python$(PYVER)/include" -Disnan=_isnan

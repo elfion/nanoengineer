@@ -1175,6 +1175,7 @@ class Select_basicGraphicsMode( Select_GraphicsMode_MouseHelpers_preMixin,
             self.o.call_Draw_after_highlighting(self, pickCheckOnly = True)
             glDisable(GL_CLIP_PLANE0)
         except:
+            print("[Exception GL_SELECT]")
             # BUG: this except clause looks wrong. It doesn't return,
             # therefore it results in two calls of glRenderMode(GL_RENDER).
             # [bruce 080917 comment]
