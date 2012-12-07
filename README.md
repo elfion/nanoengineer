@@ -28,7 +28,7 @@ For simulation and analysis, NanoEngineer-1 supports multiple molecular dynamics
 
 3\.    [Installing from source](#installing)
 
-3.2\.  [Installing from source](#installing_windows)
+3.2\.  [Installing from source on windows](#installing_windows)
 
 4\.    [Video](#video)
 
@@ -116,6 +116,7 @@ In particular:
  * [Need help?](http://www.nanoengineer-1.net/mediawiki/index.php?title=Help)
  * [Documentation](http://www.nanoengineer-1.net/mediawiki/index.php?title=Category:Documentation) including manuals, tutorials, videos, API docs, etc.
  * [Getting involved](http://www.nanoengineer-1.net/mediawiki/index.php?title=Category:Contribute)
+ * [Python documentation (class diagram, etc)](http://www.nanoengineer-1.com/snapshots/NE1_Documentation/)
 
 <a name="installing" />
 
@@ -144,7 +145,7 @@ Alternatively, you can follow [instructions to create a chroot](http://diyhpl.us
 
 <a name="installing_windows" />
 
-3.2\. Installing from source on windows
+### 3.2\. Installing from source on windows
 
 Warning: this is experimental
 
