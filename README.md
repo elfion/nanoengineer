@@ -28,6 +28,8 @@ For simulation and analysis, NanoEngineer-1 supports multiple molecular dynamics
 
 3\.    [Installing from source](#installing)
 
+3.2\.  [Installing from source](#installing_windows)
+
 4\.    [Video](#video)
 
 Developer/user group: http://groups.google.com/group/nanoengineer-dev
@@ -139,6 +141,24 @@ su nanoengineeruser -c "python ~/code/nanoengineer/cad/src/main.py"
 ```
 
 Alternatively, you can follow [instructions to create a chroot](http://diyhpl.us/~bryan/irc/nanoengineer/nanoengineer-chroot-debootstrap). Developers can be reached on the [mailing list](http://groups.google.com/group/nanoengineer-dev) or on irc.freenode.net in the ##hplusroadmap channel.
+
+<a name="installing_windows" />
+
+3.2\. Installing from source on windows
+
+Warning: this is experimental
+
+kirka successfully ran NE1 on windows 7 x64, with half of CAD functionality working.
+
+To do it, use the following steps:
+
+1. Install Python 2.7.3 (x64) from python.org
+
+2. Install Numpy, PIL, PyOpenGL, PyOpenGL-accelerate, PyQt (all x64) from http://www.lfd.uci.edu/~gohlke/pythonlibs/
+
+3. Run NE1 from commandline as usual (python directory should be in PATH): python cad/src/main.py
+
+Note that this was tested with this branch of NE1: "Win7x64" from https://github.com/elfion/nanoengineer
 
 <a name="video" />
 
